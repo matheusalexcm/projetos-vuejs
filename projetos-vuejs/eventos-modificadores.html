@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Eventos Modificadores Vuejs</title>
+	</head>
+	<body>
+		<div id="app">
+			<div @click.alt.exact="testeEvents">
+				<a :href="urlLink" @click.prevent="showAlert">{{textLink}}</a>
+
+				<form action="#" method="POST" @submit.prevent="showAlert">
+					<input type="text" placeholder="nome" />
+					<button type="submit">Enviar</button>
+				</form>
+
+				<button @click.once="showAlert">Click-me</button>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					textLink: 'Jource Solutions',
+					urlLink: 'https://jsource.com.br',
+				},
+				methods: {
+					showAlert(event) {
+						//event.preventDefault();
+						alert('Clicou no link!');
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

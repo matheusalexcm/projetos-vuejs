@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Propriedades Computadas Vuejs</title>
+	</head>
+	<body>
+		<div id="app">
+			<h1>Nome Completo</h1>
+			<input type="text" placeholder="Nome" v-model="firstName" />
+			<br /><br />
+			<input type="text" placeholder="Sobrenome" v-model="lastName" />
+			<p><strong>{{fullName}}</strong></p>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					firstName: '',
+					lastName: '',
+				},
+				computed: {
+					fullName: function () {
+						return this.firstName + ' ' + this.lastName;
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
